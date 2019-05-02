@@ -1,6 +1,6 @@
 import React from "react"
 
-function Navbar () {
+function Navbar (props) {
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -15,12 +15,33 @@ function Navbar () {
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Filter
+                                Filter on category
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <a class="dropdown-item" href="#" onClick={() => props.filterCategory("burger")}>Burger</a>
+                                <a class="dropdown-item" href="#" onClick={() => props.filterCategory("pizza")}>Pizza</a>
+                                <a class="dropdown-item" href="#" onClick={() => props.filterCategory("snacks")}>Snacks</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                Filter on Price
+
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#" defaultValue="20" onClick={() => props.filterPrice(20)}>less than 20 $</a>
+                                <a class="dropdown-item" href="#" defaultValue="30" onClick={() => props.filterPrice(30)}>less than 30 $</a>
+                                <a class="dropdown-item" href="#" defaultValue="40" onClick={() => props.filterPrice(40)}>less than 40 $</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Filter Rating
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#" onClick={() => props.filterRating(4)}>greater than 4</a>
+                                <a class="dropdown-item" href="#" onClick={() => props.filterRating(3)}>greater than 3</a>
+                                <a class="dropdown-item" href="#" onClick={() => props.filterRating(1)}>any</a>
                             </div>
                         </li>
                     </ul>

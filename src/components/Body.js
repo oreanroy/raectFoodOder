@@ -23,6 +23,7 @@ function Body (props) {
                            <img src={props.item.url}/>
                            <p>{props.item.detail} </p>
                            <p> ingridients: {props.item.ingridients}</p>
+                           <p>Rating: {props.item.rating}</p>
                            <button type="button" class="btn btn-primary pass-button" onClick={() => props.addToCart(props.item.id)}>Add to cart</button>
                            <button type="button" class="btn btn-primary fail-button" onClick={() => props.removeFromCart(props.item.id)}>Remove</button>
                        </div>

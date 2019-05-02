@@ -51,6 +51,9 @@ class App extends React.Component {
     }
     this.addToCart = this.addToCart.bind(this)
     this.removeFromCart = this.removeFromCart.bind(this)
+    this.filterRating = this.filterRating.bind(this)
+    this.filterCategory = this.filterCategory.bind(this)
+    this.filterPrice = this.filterPrice.bind(this)
   }
   componentDidMount(){   //faking an api call
     setTimeout(() => {
@@ -105,14 +108,33 @@ class App extends React.Component {
     console.log(this.state.foodInCart)
   }
 
-  filterRating() {
-
+  filterRating(val) {
+    var foods = this.state.food
+    const filtered = foods.filter(food => food.rating >= val)
+    this.setState({
+      food: filtered
+    })
+    console.log("i was called"+val)
+    console.log(filtered)
   }
-  filterCategory() {
+  filterCategory(val) {
 
+    var foods = this.state.food
+    const filtered = foods.filter(food => food.type === val)
+    this.setState({
+      food: filtered
+    })
+    console.log("i was called"+val)
+    console.log(filtered)
   }
-  filterPrice() {
+  filterPrice(val) {
 
+    var foods = this.state.food
+    const filtered = foods.filter(food => food.price <= val)
+    this.setState({
+      food: filtered
+    })
+    console.log("i was called"+val)
   }
 
 
@@ -124,7 +146,7 @@ class App extends React.Component {
     //console.log(foodmenu)
       return (
       <div>
-        <Navbar />
+        <Navbar filterRating={this.filterRating} filterCategory={this.filterCategory} filterPrice={this.filterPrice}/>
         <div className="container">
           <div className="row myrow col-12">
           {foodmenu}
