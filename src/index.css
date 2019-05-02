@@ -50,6 +50,7 @@ code {
 }
 body{
   background: linear-gradient(150deg, white , #cfd1d3, #343a40);
+  min-height: 100vh;
 }
 .my-btn{
   margin-left: auto;

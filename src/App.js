@@ -55,6 +55,7 @@ class App extends React.Component {
     this.filterCategory = this.filterCategory.bind(this)
     this.filterPrice = this.filterPrice.bind(this)
     this.displayAll = this.displayAll.bind(this)
+    this.checkOut = this.checkOut.bind(this)
   }
   componentDidMount(){   //faking an api call
     setTimeout(() => {
@@ -118,8 +119,8 @@ class App extends React.Component {
     console.log("i was called"+val)
     console.log(filtered)
   }
-  filterCategory(val) {
 
+  filterCategory(val) {
     var foods = foodItem
     const filtered = foods.filter(food => food.type === val) //filter based on category of food
     this.setState({
@@ -128,6 +129,7 @@ class App extends React.Component {
     console.log("i was called"+val)
     console.log(filtered)
   }
+
   filterPrice(val) {
 
     var foods = foodItem
@@ -137,10 +139,35 @@ class App extends React.Component {
     })
     console.log("i was called"+val)
   }
+
   displayAll(){
     this.setState({
       food: foodItem
     })
+  }
+  
+  checkOut(){
+    var totalfood = this.state.foodInCart
+    var sum = 0
+    var time = 0
+    for (const item in totalfood){
+      sum+=(totalfood[item].price)*(totalfood[item].count)//finding the total sum
+      time+=(totalfood[item].time)*(totalfood[item].count)
+    }
+    const ret = {
+      "sum": sum,
+      "time": time
+    }
+    console.log(ret)
+    for(const item in foodItem){
+      foodItem[item].count = 0  // removing all items from cart after checkout sum complete
+      foodItem[item].cart = false
+    }
+    this.setState({
+      food: foodItem,
+      foodInCart: []
+    })
+    return ret
   }
 
 
@@ -154,7 +181,14 @@ class App extends React.Component {
     //console.log(foodmenu)
       return (
       <div>
-        <Navbar filterRating={this.filterRating} filterCategory={this.filterCategory} filterPrice={this.filterPrice} displayAll={this.displayAll} inCart={itemsInCart}/>
+        <Navbar 
+          filterRating={this.filterRating} 
+          filterCategory={this.filterCategory} 
+          filterPrice={this.filterPrice} 
+          displayAll={this.displayAll} 
+          inCart={itemsInCart}
+          checkOut={this.checkOut}
+        />
         <div className="container">
           <div className="row myrow col-12">
           {foodmenu}
