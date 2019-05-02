@@ -148,7 +148,7 @@ class App extends React.Component {
   render() {
    // console.log(this.state.foodInCart)
    const itemsInCart = this.state.foodInCart.length
-   console.log(itemsInCart)
+   
     const foodmenu = this.state.food.map(item => 
       <Body key={item.id} item={item} addToCart={this.addToCart} removeFromCart={this.removeFromCart}/> )
     //console.log(foodmenu)

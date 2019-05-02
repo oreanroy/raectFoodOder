@@ -47,8 +47,8 @@ function Navbar (props) {
                         </li>
                     </ul>
                 </div>
-                
-                {props.incart ? <i class="fa fa-shopping-cart" aria-hidden="true" style={{color: "#fff"}}></i>
+                {console.log(props.inCart)}
+                {!props.inCart ? <div style={{color: "#fff"}}><a>Empty </a><i class="fa fa-shopping-cart" aria-hidden="true" ></i></div>
                 :<a style={{color: "#fff"}}>Checkout</a>}
             </nav>
         </div>
