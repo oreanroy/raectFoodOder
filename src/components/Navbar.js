@@ -49,7 +49,7 @@ function Navbar (props) {
                 </div>
                 {console.log(props.inCart)}
                 {!props.inCart ? <div style={{color: "#fff"}}><a>Empty </a><i class="fa fa-shopping-cart" aria-hidden="true" ></i></div>
-                :<a class="nav-link" style={{color: "#fff", cursor: "pointer"}} onClick={() => props.checkOut()}>Checkout</a>}
+                :<a class="nav-link" style={{color: "#fff", cursor: "pointer"}} onClick={() => props.checkOut()}>Checkout to confirm order</a>}
             </nav>
         </div>
     )

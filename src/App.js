@@ -16,7 +16,7 @@ class App extends React.Component {
     food: [],
     foodInCart: [],
     checkout: false,
-    show: false
+    show: false //modal helping state.
     }
     this.addToCart = this.addToCart.bind(this)
     this.removeFromCart = this.removeFromCart.bind(this)
@@ -26,7 +26,7 @@ class App extends React.Component {
     this.displayAll = this.displayAll.bind(this)
     this.checkOut = this.checkOut.bind(this)
     this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleClose = this.handleClose.bind(this); //binding for modal which is yet not implemented
   }
   componentDidMount(){   //faking an api call
     setTimeout(() => {
@@ -78,17 +78,15 @@ class App extends React.Component {
       foodInCart: newcart,
       food: foods
     })
-    console.log(this.state.foodInCart)
+    //console.log(this.state.foodInCart)
   }
 
-  filterRating(val) {
-    var foods = foodItem
-    const filtered = foods.filter(food => food.rating >= val)
+  filterRating(val) {  //filtering based on rating
+    var foods = foodItem                                      // rather than taking fooItem earlier state value of foods can  
+    const filtered = foods.filter(food => food.rating >= val) //be taken to get add operation clubbed up by different filters
     this.setState({
       food: filtered
     })
-    console.log("i was called"+val)
-    console.log(filtered)
   }
 
   filterCategory(val) {
@@ -97,8 +95,8 @@ class App extends React.Component {
     this.setState({
       food: filtered
     })
-    console.log("i was called"+val)
-    console.log(filtered)
+    //console.log("i was called"+val)
+    //console.log(filtered)
   }
 
   filterPrice(val) {
@@ -108,7 +106,6 @@ class App extends React.Component {
     this.setState({
       food: filtered
     })
-    console.log("i was called"+val)
   }
 
   displayAll(){
@@ -129,7 +126,7 @@ class App extends React.Component {
       "sum": sum,
       "time": time
     }
-    console.log(ret)
+    //console.log(ret)
     for(const item in foodItem){
       foodItem[item].count = 0  // removing all items from cart after checkout sum complete
       foodItem[item].cart = false
