@@ -6,39 +6,7 @@ import Navbar from './components/Navbar'
 import Body from './components/Body'
 import foodItem from './Data/foodData'
 
-//function App() {
-//  return (
-//    <div className="App">
-//      <header className="App-header">
-//        <img src={logo} className="App-logo" alt="logo" />
-//        <p>
-//          Edit <code>src/App.js</code> and save to reload.
-//        </p>
-//        <a
-//          className="App-link"
-//          href="https://reactjs.org"
-//          target="_blank"
-//          rel="noopener noreferrer"
-//        >
-//          Learn React
-//        </a>
-//      </header>
-//    </div>
-//  );
-//}
 
-//function App(){
-//  console.log(foodItem)
-//  return (
-//    <div>
-//    <Navbar />
-//
-//    <Body />
-//
-//    <Footer />
-//    </div>
-//  )
-//}
 
 
 class App extends React.Component {
@@ -47,7 +15,8 @@ class App extends React.Component {
     this.state = {
     food: [],
     foodInCart: [],
-    checkout: false
+    checkout: false,
+    show: false
     }
     this.addToCart = this.addToCart.bind(this)
     this.removeFromCart = this.removeFromCart.bind(this)
@@ -56,6 +25,8 @@ class App extends React.Component {
     this.filterPrice = this.filterPrice.bind(this)
     this.displayAll = this.displayAll.bind(this)
     this.checkOut = this.checkOut.bind(this)
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
   componentDidMount(){   //faking an api call
     setTimeout(() => {
@@ -167,12 +138,19 @@ class App extends React.Component {
       food: foodItem,
       foodInCart: []
     })
+    alert(`Your oder summary is ${ret.sum} $ and it will take ${ret.time} minutes to complete thank you!! Happying eating`)
     return ret
   }
+  handleClose() {
+    this.setState({ show: false });
+  }// this is for modal compoent which will show the oder summary yet not attached
 
-
+  handleShow() {
+    this.setState({ show: true });
+  } // this is for modal component too
 
   render() {
+    
    // console.log(this.state.foodInCart)
    const itemsInCart = this.state.foodInCart.length
    
@@ -195,6 +173,7 @@ class App extends React.Component {
           </div>
         </div>
         <Footer />
+        
       </div>
     )
   }

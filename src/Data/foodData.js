@@ -9,7 +9,8 @@ const foodItem = [
         count: 0,
         ingridients: "this n that",
         type: "burger",
-        rating: 4
+        rating: 4,
+        time: 10
     },
     {
         id: 2,
@@ -21,7 +22,8 @@ const foodItem = [
         count: 0,
         ingridients: "this n that",
         type: "pizza",
-        rating: 5
+        rating: 5, 
+        time: 11
     },
     {
         id: 3,
@@ -33,7 +35,8 @@ const foodItem = [
         count: 0,
         ingridients: "this n that",
         type: "snacks",
-        rating: 3
+        rating: 3,
+        time: 5
     },
     {
         id: 4,
@@ -45,7 +48,8 @@ const foodItem = [
         count: 0,
         ingridients: "this n that",
         type: "pizza",
-        rating: 4
+        rating: 4,
+        time: 12
     },
     {
         id: 5,
@@ -57,7 +61,8 @@ const foodItem = [
         count: 0,
         ingridients: "this n that",
         type: "burger",
-        rating: 5
+        rating: 5,
+        time: 5
     },
     {
         id: 6,
@@ -69,7 +74,8 @@ const foodItem = [
         count: 0,
         ingridients: "this n that",
         type: "burger",
-        rating: 3
+        rating: 3,
+        time: 4
     }
 ]
 
