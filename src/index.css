@@ -12,3 +12,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.mycard{
+  margin: 2%;
+  background-color: #e3e7ed;
+  border-radius: 10px;
+  padding: 2%;
+  height: 550px;
+  
+}
+.mycard img{
+  height:150px;
+  width: 100%;
+  overflow: hidden;
+}
+.mycardin{
+  padding: 4%;
+  background-color: #e3e7ed;
+  width: 100%;
+  overflow: none;
+}
+.myrow{
+  margin-left: auto;
+  margin-right: auto;
+}
+.pass-button{
+  background-color: green;
+  margin: 4px;
+}
+.fail-button{
+  background-color: red;
+  margin-bottom: 2px;
+}
+body{
+  background: linear-gradient(150deg, white , #cfd1d3, #343a40);
+}
+.my-btn{
+  margin-left: auto;
+  margin-right: auto;
+}
