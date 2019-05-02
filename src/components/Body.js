@@ -16,7 +16,7 @@ function Body (props) {
     //console.log("i ran")
     return (
         
-                    <div class="col-3 mycard">
+                    <div class="col-10 mycard col-sm-10 col-md-3 col-lg-3 col-xl-3">
                        <div class="card mycardin" >
 
                            <h5>{props.item.name}</h5>
