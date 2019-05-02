@@ -19,11 +19,13 @@ function Body (props) {
                     <div class="col-3 mycard">
                        <div class="card mycardin" >
 
-                           <p>{props.item.name}</p>
+                           <h5>{props.item.name}</h5>
                            <img src={props.item.url}/>
                            <p>{props.item.detail} </p>
                            <p> ingridients: {props.item.ingridients}</p>
                            <p>Rating: {props.item.rating}</p>
+                           <p>Price:  <strong>{props.item.price} $</strong></p>
+                           <p>In cart: {props.item.count} </p>
                            <button type="button" class="btn btn-primary pass-button" onClick={() => props.addToCart(props.item.id)}>Add to cart</button>
                            <button type="button" class="btn btn-primary fail-button" onClick={() => props.removeFromCart(props.item.id)}>Remove</button>
                        </div>

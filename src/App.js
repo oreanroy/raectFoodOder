@@ -54,6 +54,7 @@ class App extends React.Component {
     this.filterRating = this.filterRating.bind(this)
     this.filterCategory = this.filterCategory.bind(this)
     this.filterPrice = this.filterPrice.bind(this)
+    this.displayAll = this.displayAll.bind(this)
   }
   componentDidMount(){   //faking an api call
     setTimeout(() => {
@@ -109,7 +110,7 @@ class App extends React.Component {
   }
 
   filterRating(val) {
-    var foods = this.state.food
+    var foods = foodItem
     const filtered = foods.filter(food => food.rating >= val)
     this.setState({
       food: filtered
@@ -119,8 +120,8 @@ class App extends React.Component {
   }
   filterCategory(val) {
 
-    var foods = this.state.food
-    const filtered = foods.filter(food => food.type === val)
+    var foods = foodItem
+    const filtered = foods.filter(food => food.type === val) //filter based on category of food
     this.setState({
       food: filtered
     })
@@ -129,24 +130,31 @@ class App extends React.Component {
   }
   filterPrice(val) {
 
-    var foods = this.state.food
+    var foods = foodItem
     const filtered = foods.filter(food => food.price <= val)
     this.setState({
       food: filtered
     })
     console.log("i was called"+val)
   }
+  displayAll(){
+    this.setState({
+      food: foodItem
+    })
+  }
 
 
 
   render() {
    // console.log(this.state.foodInCart)
+   const itemsInCart = this.state.foodInCart.length
+   console.log(itemsInCart)
     const foodmenu = this.state.food.map(item => 
       <Body key={item.id} item={item} addToCart={this.addToCart} removeFromCart={this.removeFromCart}/> )
     //console.log(foodmenu)
       return (
       <div>
-        <Navbar filterRating={this.filterRating} filterCategory={this.filterCategory} filterPrice={this.filterPrice}/>
+        <Navbar filterRating={this.filterRating} filterCategory={this.filterCategory} filterPrice={this.filterPrice} displayAll={this.displayAll} inCart={itemsInCart}/>
         <div className="container">
           <div className="row myrow col-12">
           {foodmenu}

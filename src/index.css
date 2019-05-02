@@ -18,13 +18,17 @@ code {
   background-color: #e3e7ed;
   border-radius: 10px;
   padding: 2%;
-  height: 550px;
+  
   
 }
 .mycard img{
   height:150px;
   width: 100%;
   overflow: hidden;
+}
+.mycard p{
+  font-size: 20px;
+  margin: 0px;
 }
 .mycardin{
   padding: 4%;

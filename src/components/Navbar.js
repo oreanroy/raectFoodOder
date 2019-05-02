@@ -1,4 +1,5 @@
 import React from "react"
+import { whileStatement } from "@babel/types";
 
 function Navbar (props) {
     return (
@@ -11,7 +12,7 @@ function Navbar (props) {
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#" onClick={() => props.displayAll()}>All items <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,7 +37,7 @@ function Navbar (props) {
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Filter Rating
+                                Filter on Rating
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#" onClick={() => props.filterRating(4)}>greater than 4</a>
@@ -46,6 +47,9 @@ function Navbar (props) {
                         </li>
                     </ul>
                 </div>
+                
+                {props.incart ? <i class="fa fa-shopping-cart" aria-hidden="true" style={{color: "#fff"}}></i>
+                :<a style={{color: "#fff"}}>Checkout</a>}
             </nav>
         </div>
     )
