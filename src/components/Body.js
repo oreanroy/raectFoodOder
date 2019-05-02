@@ -12,8 +12,8 @@ import Card from "./Card"
 //}
 
 function Body (props) {
-    console.log(props)
-    console.log("i ran")
+    //console.log(props)
+    //console.log("i ran")
     return (
         
                     <div class="col-3 mycard">
@@ -23,8 +23,8 @@ function Body (props) {
                            <img src={props.item.url}/>
                            <p>{props.item.detail} </p>
                            <p> ingridients: {props.item.ingridients}</p>
-                           <button type="button" class="btn btn-primary pass-button" >Add to cart</button>
-                           <button type="button" class="btn btn-primary fail-button" >Remove</button>
+                           <button type="button" class="btn btn-primary pass-button" onClick={() => props.addToCart(props.item.id)}>Add to cart</button>
+                           <button type="button" class="btn btn-primary fail-button" onClick={() => props.removeFromCart(props.item.id)}>Remove</button>
                        </div>
                     </div>
                 

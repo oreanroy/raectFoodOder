@@ -46,9 +46,11 @@ class App extends React.Component {
     super()
     this.state = {
     food: [],
-    foodInCart: foodItem,
+    foodInCart: [],
     checkout: false
     }
+    this.addToCart = this.addToCart.bind(this)
+    this.removeFromCart = this.removeFromCart.bind(this)
   }
   componentDidMount(){   //faking an api call
     setTimeout(() => {
@@ -57,11 +59,69 @@ class App extends React.Component {
       })
     }, 100)
   }
-  render() {
+
+  addToCart(id) {
+    //add to cart here or increase the count
+    var newcart = this.state.foodInCart
+    var foods = this.state.food
+    for (const item in foods ) {
+      //console.log(foods[item])
+      if (foods[item].id === id){
+        console.log(foods[item])
+        if (foods[item].cart !== true){
+          foods[item].cart = true
+          newcart.push(foods[item])
+        }
+        foods[item].count = foods[item].count+1
+      }
+    }
+    this.setState({
+      foodInCart: newcart,
+      food: foods
+    })
     console.log(this.state.foodInCart)
-    const foodmenu = this.state.foodInCart.map(item => 
-      <Body key={item.id} item={item} addcart={this.addcart} /> )
-    console.log(foodmenu)
+    console.log("i ran from inside")
+  }
+
+  removeFromCart(id) {
+    var newcart = this.state.foodInCart
+    var foods = this.state.food
+    for (const item in foods ) {
+      //console.log(foods[item])
+      if (foods[item].id === id){
+        console.log(foods[item])
+        if (foods[item].cart === true && foods[item].count===1){
+          foods[item].cart = false
+          newcart.pop(foods[item])
+        }
+        if(foods[item].count >= 1)
+        foods[item].count = foods[item].count-1
+      }
+    }
+    this.setState({
+      foodInCart: newcart,
+      food: foods
+    })
+    console.log(this.state.foodInCart)
+  }
+
+  filterRating() {
+
+  }
+  filterCategory() {
+
+  }
+  filterPrice() {
+
+  }
+
+
+
+  render() {
+   // console.log(this.state.foodInCart)
+    const foodmenu = this.state.food.map(item => 
+      <Body key={item.id} item={item} addToCart={this.addToCart} removeFromCart={this.removeFromCart}/> )
+    //console.log(foodmenu)
       return (
       <div>
         <Navbar />
